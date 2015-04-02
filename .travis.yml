@@ -1,9 +1,10 @@
 language: ruby
 rvm:
-  - 2.2.0
-
+- 2.2.0
 sudo: false
 cache: bundler
-
 notifications:
   email: false
+env:
+  global:
+    secure: QPmBA7qw0wx7vn/vMIZi7lsatBqPGl4PJ3IvyE2J4xEO1bryMMcW/e90QaCuu/6YQVrTALRTi5auk2dl+1GLE5tGPSr38o9TyzZ3Cq8bG/qabWd5i7s4eK9oKOlVsZNV7z8h0SKGXonDhFXIN9yo+Z8bgOx9WXWM9PRhIVn5Uls=
