@@ -22,7 +22,7 @@ module Sinatra
           if !path.end_with?('/') && !path.to_s.include?(".")
             path = path << '/'
             if ENV['RACK_ENV'] == "development"
-              new_url = URI::HTTP.build(host: request.host, port: 4567, path: path, query: query)
+              new_url = URI::HTTP.build(host: request.host, port: 9292, path: path, query: query)
             else
               new_url = URI::HTTP.build(host: request.host, path: path, query: query)
             end
