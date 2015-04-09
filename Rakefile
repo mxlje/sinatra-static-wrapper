@@ -55,7 +55,7 @@ task :deploy do
       'X-Auth-Token'  => VDT_AUTH_TOKEN,
       'X-Auth-Secret' => VDT_AUTH_SECRET,
     },
-    parameters: "params={\"application\":\"#{VDT_APP_ID \"}"
+    parameters: "params={\"application\":\"#{VDT_APP_ID} \"}"
   )
 
   case response.body['status']
