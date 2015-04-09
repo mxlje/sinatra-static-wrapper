@@ -48,10 +48,10 @@ PLATFORMS
 
 DEPENDENCIES
   colorize (= 0.7.5)
-  json
+  json (= 1.8.2)
   puma (= 2.9.0)
-  rake
+  rake (= 10.4.2)
   sinatra (= 1.4.6)
   sinatra-contrib (= 1.4.2)
   sinatra-index!
-  unirest
+  unirest (= 1.1.2)
