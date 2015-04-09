@@ -39,7 +39,7 @@ BS              = "\r"
 
 VDT_AUTH_TOKEN = ENV['VDT_AUTH_TOKEN']
 VDT_AUTH_SECRET = ENV['VDT_AUTH_SECRET']
-APP_ID = ENV['VDT_APP_ID']
+VDT_APP_ID = ENV['VDT_APP_ID']
 
 desc "Deploy to viaduct"
 task :deploy do
@@ -55,7 +55,7 @@ task :deploy do
       'X-Auth-Token'  => VDT_AUTH_TOKEN,
       'X-Auth-Secret' => VDT_AUTH_SECRET,
     },
-    parameters: "params={\"application\":\"#{APP_ID}\"}"
+    parameters: "params={\"application\":\"#{VDT_APP_ID \"}"
   )
 
   case response.body['status']
