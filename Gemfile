@@ -7,3 +7,4 @@ gem "rake"
 gem 'sinatra-index', github: 'mxlje/sinatra-index'
 gem 'json'
 gem 'unirest'
+gem 'colorize', '0.7.5'

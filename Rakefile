@@ -1,50 +1,29 @@
 require 'unirest'
 require 'json'
+require 'colorize'
 
-class C
-  class << self
-    def green(s)
-      "\e[36m#{s}\e[0m"
-    end
+MSG_PUSHING     = "Triggering new deployment".light_black
 
-    def orange(s)
-      "\e[33m#{s}\e[0m"
-    end
-
-    def red(s)
-      "\e[31m#{s}\e[0m"
-    end
-
-    def gray(s)
-      "\e[90m#{s}\e[0m"
-    end
-
-  end
-end
-
-desc "Deploy"
-task :default do
-  puts C.green("Success!")
-end
-
-
-MSG_PUSHING     = C.gray      "Triggering new deployment"
-
-STATUS_OK       = C.green     "[  OK  ]"
-STATUS_WAIT     = C.orange    "[ WAIT ]"
-STATUS_FAIL     = C.red       "[ FAIL ]"
+STATUS_OK       = "[  OK  ]".green
+STATUS_WAIT     = "[ WAIT ]".yellow
+STATUS_FAIL     = "[ FAIL ]".red
 
 TAB             = "\t\t"
 BS              = "\r"
 
-VDT_AUTH_TOKEN = ENV['VDT_AUTH_TOKEN']
+VDT_AUTH_TOKEN  = ENV['VDT_AUTH_TOKEN']
 VDT_AUTH_SECRET = ENV['VDT_AUTH_SECRET']
-VDT_APP_ID = ENV['VDT_APP_ID']
+VDT_APP_ID      = ENV['VDT_APP_ID']
+
+desc "Return true"
+task :default do
+  puts "Success!".green
+end
 
 desc "Deploy to viaduct"
 task :deploy do
   unless VDT_AUTH_TOKEN && VDT_AUTH_SECRET && VDT_APP_ID
-    abort(C.red('Error: Set Viaduct credentials.'))
+    abort('Error: Set Viaduct credentials.'.red)
   end
 
   print MSG_PUSHING + TAB + STATUS_WAIT + BS
@@ -65,12 +44,6 @@ task :deploy do
 
   else
     print MSG_PUSHING + TAB + STATUS_FAIL + "\n\n"
-
-    abort(
-      C.red(
-        'Error: ' + response.body['status'] + ': ' +
-        response.body.fetch('data')['message']
-      )
-    )
+    abort("Error: #{response.body['status']} : #{response.body.fetch('data')['message']}".red)
   end
 end
