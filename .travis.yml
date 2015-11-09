@@ -10,6 +10,7 @@ deploy:
   script: deploy.sh
   on:
     branch: master
+  skip_cleanup: true
 env:
   global:
   - secure: nGQ3/GEw9PcV5GMe1kGEWYfrqhNUqbe58Eslb+uZSSgax4RcdLyzyqJ90ieUzW4KwxPKkhsNpKKIuj9QSsaQOjl2YrUPGNU1pw9qbQWak4Nb56oF/pkKmphA76x0Ek3Vz2I7VD88xJGIgE+G+Rb2QWhGCWsmXW/3TtQYjxAynGw=
